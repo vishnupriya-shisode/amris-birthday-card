@@ -27,7 +27,7 @@ h1, h2, h3, h4, p {
 
 #snoopy {
     border-radius: 50%;
-    border: 5px solid #EFB0C9;
+    border: 5px solid #ddc4ce;
     width:290px;
     height: 300px;
 }
@@ -124,4 +124,16 @@ a{
         margin-top: 12px;
     }
 
+}
+
+#loading-text {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+#countdown-timer {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: bold;
+    margin-top: 20px;
 }

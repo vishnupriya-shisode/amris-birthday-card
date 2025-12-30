@@ -10,6 +10,7 @@
 <body>
 <div id="countdown-screen">
     <h1>🎉 Amri's Birthday Countdown 🎉</h1>
+    <p id="loading-text">Preparing the surprise</p>
     <p id="countdown-timer"></p>
 </div>
 
@@ -22,7 +23,7 @@
         <h4 id="bday-date">02 Jan 2026</h4>
     </div>
     <div class="gift-section">
-        <h2 class="gift-title">Here's i how Happy I'am for you today!!</h2 >
+        <h2 class="gift-title">Here's how Happy I'am for you today!!</h2 >
         <h3 class="gift-hint">(Hover over the Gift)</h3>
         <div class="gift-img" id="gift-img-happy"></div>
     </div>
@@ -56,9 +57,16 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-    // 🎂 Target time: 2 Jan 2026, 12:00 AM IST
-    // IST = UTC + 5:30 → 1 Jan 2026, 18:30 UTC
-    const birthdayTime = Date.UTC(2026, 0, 1, 18, 30, 0);
+    let dots = 0;
+    setInterval(() => {
+    dots = (dots + 1) % 4;
+    document.getElementById("loading-text").innerText =
+        "Preparing the surprise" + ".".repeat(dots);
+    }, 500);
+
+    //const birthdayTime = Date.UTC(2026, 0, 1, 18, 30, 0);
+    const birthdayTime = new Date().getTime() + 10000;
+
 
     const timer = setInterval(() => {
         const now = new Date().getTime();
@@ -93,6 +101,7 @@
     }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 </body>
 </html>
