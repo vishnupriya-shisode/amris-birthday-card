@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Amruta's Birthday Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="countdown-screen">
+    <h1>🎉 Amri's Birthday Countdown 🎉</h1>
+    <p id="countdown-timer"></p>
+</div>
+
+<div id="birthday-content" style="display: none;">
+
+    <div id="header">
+        <h1>Happyyy Birthdayyy Amri🎈</h1>
+        <img id="snoopy" src="images/Amri.jpeg" alt="Amruta posing in a black dress">
+        <h2 id =bday-age>24 years old!</h2>
+        <h4 id="bday-date">02 Jan 2026</h4>
+    </div>
+    <div class="gift-section">
+        <h2 class="gift-title">Here's i how Happy I'am for you today!!</h2 >
+        <h3 class="gift-hint">(Hover over the Gift)</h3>
+        <div class="gift-img" id="gift-img-happy"></div>
+    </div>
+
+     <div class="gift-section">
+        <h2 class="gift-title">This is how people feel when you enter the room😍</h2 >
+        <div class="gift-img" id="gift-img-hot"></div>
+    </div>
+
+    <div class="gift-section">
+        <h2 class="gift-title">If I had tp describe YOU in one word 👇🏼</h2 >
+        <div class="gift-img" id="gift-img-genius"></div>
+    </div>
+
+     <div class="gift-section">
+        <h2 class="gift-title">The only person as badass as you 💪🏼</h2 >
+        <div class="gift-img" id="gift-img-badass"></div>
+    </div>
+
+     <div class="gift-section">
+        <h2 class="gift-title">This one's for you, my friend 🥂</h2 >
+        <div class="gift-img" id="gift-img-cheer"></div>
+    </div>
+    <div>
+        <p class="footer">Enjoy your special day, Amri Dhamri ILYSSSM!❤️ <a href="https://www.youtube.com/shorts/R3cT7WjJse4", target="_blank">click me for a smile</a></p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+    // 🎂 Target time: 2 Jan 2026, 12:00 AM IST
+    // IST = UTC + 5:30 → 1 Jan 2026, 18:30 UTC
+    const birthdayTime = Date.UTC(2026, 0, 1, 18, 30, 0);
+
+    const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const diff = birthdayTime - now;
+
+        if (diff <= 0) {
+            clearInterval(timer);
+
+            document.getElementById("countdown-screen").style.display = "none";
+            document.getElementById("birthday-content").style.display = "block";
+
+            launchConfetti();
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("countdown-timer").innerText =
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    }, 1000);
+
+    function launchConfetti() {
+        confetti({
+            particleCount: 200,
+            spread: 120,
+            origin: { y: 0.6 }
+        });
+    }
+</script>
+
+
+</body>
+</html>
+
+
+
