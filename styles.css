@@ -77,6 +77,10 @@ h1, h2, h3, h4, p {
 
 #gift-img-badass:hover {
     background-image: url("images/severance.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 #gift-img-cheer:hover {
     background-image: url("images/cheers.gif");
